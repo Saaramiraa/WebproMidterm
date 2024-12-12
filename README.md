@@ -1,66 +1,355 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Golang FP
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://gin-gonic.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/gin-gonic/logo/master/gin-logo.png" width="400" alt="Gin Logo">
+  </a>
 </p>
 
-## About Laravel
+  <a href="https://pkg.go.dev/github.com/gin-gonic/gin">
+    <img src="https://pkg.go.dev/badge/github.com/gin-gonic/gin.svg" alt="GoDoc">
+  </a>
+  <a href="https://goreportcard.com/report/github.com/gin-gonic/gin">
+    <img src="https://goreportcard.com/badge/github.com/gin-gonic/gin" alt="Go Report Card">
+  </a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Author Tracker Website
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The **Author Tracker Website** is a web application built using the Gin framework in Go. It allows users to manage authors and books efficiently, featuring CRUD operations and a user-friendly interface for organizing and viewing book collections. This project also demonstrates clear separation of concerns using controllers, models, and views.
 
-## Learning Laravel
+## Youtube Link
+- https://youtu.be/FatzDY9jU6w
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Previous Github link
+- Github link: (Reza Oktavianto) https://github.com/rezaoctavianto/PBKK-Golang/tree/master
+- Github link: (Amirah Maisara)
+https://github.com/Saaramiraa/FinalProject.git
+https://github.com/Saaramiraa/last
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Goals
 
-## Laravel Sponsors
+1. Create a four-page website with structured navigation:
+   - **Main Page**: "Get Started" button leading to the author page.
+   - **Author Page**: Includes `index.html`, `edit.html`, and `create.html` for managing authors.
+   - **Book Page**: Displays and manages books with `create.html`, `detail.html`, `edit.html`, and `view.html`.
+   - **Collection Page**: Lists book titles, authors, descriptions, and release dates.
+2. Implement a One-to-Many relationship between authors and books.
+3. Design simple controllers and models to support the application’s functionality.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Key Features
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Main Page
+- Welcome page with a "Get Started" button linking to the author management page.
 
-## Contributing
+### Author Management
+- Add, update, delete, and view authors.
+- Includes:
+  - `index.html` for listing authors.
+  - `create.html` for adding authors.
+  - `edit.html` for updating author details.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Book Management
+- Add, update, delete, and view books.
+- Includes:
+  - `create.html` for adding books.
+  - `detail.html` for viewing book details.
+  - `edit.html` for updating book information.
+  - `view.html` for listing books.
 
-## Code of Conduct
+### Collection Page
+- Displays all book titles, author names, descriptions, and release dates.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Development Structure
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Setup Project
+- Initialize a new Go project.
+- Add Gin framework and necessary packages.
+- Configure the project folder structure:
 
-## License
+```
+author-tracker/
+├── controllers/
+│   ├── homecontroller.go
+│   ├── authorcontroller.go
+│   ├── bookcontroller.go
+│   └── collectioncontroller.go
+├── models/
+│   ├── authormodel.go
+│   └── bookmodel.go
+├── entities/
+│   ├── author.go
+│   └── book.go
+├── views/
+│   ├── main.html
+│   ├── authors/
+│   │   ├── index.html
+│   │   ├── create.html
+│   │   └── edit.html
+│   ├── books/
+│   │   ├── create.html
+│   │   ├── detail.html
+│   │   ├── edit.html
+│   │   └── view.html
+│   └── collection.html
+├── main.go
+└── go.mod
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2. Database Design
+
+#### Authors Table
+```sql
+DROP TABLE IF EXISTS authors;
+CREATE TABLE authors (
+  id INT AUTO_INCREMENT NOT NULL,
+  name VARCHAR(128) NOT NULL,
+  birthdate DATE NOT NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+```
+
+#### Books Table
+```sql
+DROP TABLE IF EXISTS books;
+CREATE TABLE books (
+  id INT AUTO_INCREMENT NOT NULL,
+  title VARCHAR(128) NOT NULL,
+  author_id INT NOT NULL,
+  description TEXT,
+  release_date DATE,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE CASCADE
+);
+```
+
+### 3. Controllers
+
+#### HomeController
+Handles navigation from the main page to other pages.
+
+```go
+package controllers
+
+import (
+  "html/template"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+func Welcome(c *gin.Context) {
+	temp, err := template.ParseFiles("views/index.html")
+	if err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+	}
+	temp.Execute(c.Writer, nil)
+}
+```
+
+#### AuthorController
+Manages author-related operations (CRUD).
+
+```go
+package controllers
+
+import (
+	"Authors/entities"
+	"Authors/models/authormodel"
+	"net/http"
+	"strconv"
+	"text/template"
+	"github.com/gin-gonic/gin"
+)
+
+func Index(c *gin.Context) {
+	// Index displays a list of authors
+	c.HTML(http.StatusOK, "authors/index.html", nil)
+}
+
+func Create(c *gin.Context) {
+	if c.Request.Method == http.MethodPost {
+		// Add handles adding new authors
+	} else {
+		c.HTML(http.StatusOK, "authors/create.html", nil)
+	}
+}
+
+func Edit(c *gin.Context) {
+	if c.Request.Method == http.MethodPost {
+		// Logic to update author
+	} else {
+		c.HTML(http.StatusOK, "authors/edit.html", nil)
+	}
+}
+
+// Delete handles deleting an author
+func Delete(c *gin.Context) {
+	idString := c.Query("id")
+	id, err := strconv.Atoi(idString)
+	if err != nil {
+		c.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	if err := authormodel.Delete(id); err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
+
+	c.Redirect(http.StatusSeeOther, "/authors")
+}
+```
+
+#### BookController
+Handles book-related operations (CRUD).
+
+```go
+package controllers
+
+import (
+	"Authors/entities"
+	"Authors/models/authormodel"
+	"Authors/models/bookmodel"
+	"html/template"
+	"net/http"
+	"strconv"
+	"time"
+	"github.com/gin-gonic/gin"
+)
+
+func Index(c *gin.Context) {
+	c.HTML(http.StatusOK, "books/view.html", nil)
+}
+
+func Create(c *gin.Context) {
+	if c.Request.Method == http.MethodPost {
+		// Logic to add book
+	} else {
+		c.HTML(http.StatusOK, "books/create.html", nil)
+	}
+}
+
+func Detail(c *gin.Context) {
+	c.HTML(http.StatusOK, "books/detail.html", nil)
+}
+
+func Edit(c *gin.Context) {
+	if c.Request.Method == http.MethodPost {
+		// Logic to update book
+	} else {
+		c.HTML(http.StatusOK, "books/edit.html", nil)
+	}
+}
+
+func Delete(c *gin.Context) {
+	id, err := strconv.Atoi(c.Query("id"))
+	if err != nil {
+		c.AbortWithError(http.StatusBadRequest, err)
+		return
+	}
+
+	if err := bookmodel.Delete(id); err != nil {
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
+	}
+	c.Redirect(http.StatusSeeOther, "/books")
+}
+```
+
+#### CollectionController
+Displays the collection of books and authors.
+
+```go
+package controllers
+
+import (
+  "html/template"
+	"net/http"
+	"github.com/gin-gonic/gin"
+)
+
+func Index(c *gin.Context) {
+	// Logic to list book collections
+	c.HTML(http.StatusOK, "collection.html", nil)
+}
+```
+
+---
+
+## Relationships
+
+#### Author Model
+```go
+package models
+
+type Author struct {
+	Id   int
+	Name string
+	DoB  string
+	Updated_At time.Time
+}
+```
+
+#### Book Model
+```go
+package models
+
+type Book struct {
+	Id       uint
+	Title    string
+	Author   Author
+	Genre    string
+	Description string
+	Updated_At time.Time
+	Added_At time.Time
+}
+```
+
+---
+
+## Routes
+
+```go
+router := gin.Default()
+
+// Home Page
+router.GET("/", homecontroller.Welcome)
+
+// Author Routes
+authorRoutes := router.Group("/authors")
+{
+	authorRoutes.GET("", authorcontroller.Index)
+	authorRoutes.GET("/create", authorcontroller.Create)
+	authorRoutes.POST("/create", authorcontroller.Create)
+	authorRoutes.GET("/edit", authorcontroller.Edit)
+	authorRoutes.POST("/edit", authorcontroller.Edit)
+}
+
+// Book Routes
+bookRoutes := router.Group("/books")
+{
+	bookRoutes.GET("", bookcontroller.Index)
+	bookRoutes.GET("/create", bookcontroller.Create)
+	bookRoutes.POST("/create", bookcontroller.Create)
+	bookRoutes.GET("/detail", bookcontroller.Detail)
+	bookRoutes.GET("/edit", bookcontroller.Edit)
+	bookRoutes.POST("/edit", bookcontroller.Edit)
+}
+
+// Collection Page
+router.GET("/collection", collectioncontroller.Index)
+
+router.Run(":8080")
+```
+
