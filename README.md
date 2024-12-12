@@ -24,10 +24,10 @@ The **Author Tracker Website** is a web application built using the Gin framewor
 - https://youtu.be/FatzDY9jU6w
 
 ## Previous Github link
-- Github link: (Reza Oktavianto) https://github.com/rezaoctavianto/PBKK-Golang/tree/master
-- Github link: (Amirah Maisara)
-https://github.com/Saaramiraa/FinalProject.git
-https://github.com/Saaramiraa/last
+- (Reza Oktavianto) https://github.com/rezaoctavianto/PBKK-Golang/tree/master
+- (Amirah Maisara)
+- https://github.com/Saaramiraa/FinalProject.git
+- https://github.com/Saaramiraa/last
 
 ---
 
